@@ -1,5 +1,11 @@
 #!/usr/bin/python3
-import os, json, requests, time
+import json, requests, time
+
+def load_config():
+    with open("config.json") as confFile:
+        return json.load(confFile)
+
+config = load_config()
 
 def main():
     print("Initializing...")
@@ -22,7 +28,7 @@ def send_quote(quoteid):
     else:
         discord_webhook_json = {}
         discord_webhook_json["content"] = quoteid
-        r = requests.post(os.environ['INSPIROCORD_WEBHOOK_URL'], data=json.dumps(discord_webhook_json), headers={'Content-Type': 'application/json'})
+        r = requests.post(config['webhook_url'], data=json.dumps(discord_webhook_json), headers={'Content-Type': 'application/json'})
         if r.status_code == 204:
             print("Success! Quote sent!")
         else:
@@ -32,7 +38,7 @@ def send_quote(quoteid):
 def setInterval():
     while True:
         main()
-        time.sleep(300)
+        time.sleep(config['timeout'])
 
 if __name__ == '__main__':
     setInterval()
