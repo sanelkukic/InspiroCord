@@ -10,6 +10,8 @@ This script will generate and send a new quote every 5 minutes as long as the sc
 $ git clone https://github.com/xDrixxyz/InspiroCord
 ```
 
+- Install requirements using `pip`: `pip3 install -r requirements.txt`
+
 - Copy `config.example.json` to `config.json`
 
 - Edit the values in `config.json` by entering your webhook URL and optionally changing the timeout (read more below).
