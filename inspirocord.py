@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import os, sys, json, requests, threading
+import os, json, requests, time
 
 def main():
     print("Initializing...")
@@ -29,14 +29,10 @@ def send_quote(quoteid):
             print("Failed to send quote")
             print(r.text)
 
-def setInterval(func, sec):
-    def func_wrapper():
-        set_interval(func, sec)
-        func()
-
-    t = threading.Timer(sec, func_wrapper)
-    t.start()
-    return t
+def setInterval():
+    while True:
+        main()
+        time.sleep(10)
 
 if __name__ == '__main__':
-    setInterval(main(), 3000)
+    setInterval()
