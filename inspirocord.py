@@ -32,7 +32,7 @@ def send_quote(quoteid):
 def setInterval():
     while True:
         main()
-        time.sleep(10)
+        time.sleep(300)
 
 if __name__ == '__main__':
     setInterval()
