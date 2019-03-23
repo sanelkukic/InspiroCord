@@ -1,6 +1,8 @@
 # InspiroCord
 A Python script to generate quotes using [InspiroBot](https://inspirobot.me)'s API and send them to a Discord webhook.
 
+This script will generate and send a new quote every 5 minutes as long as the script is running.
+
 ## How to setup
 
 - Clone the repository using `git`:
